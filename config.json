@@ -1,0 +1,24 @@
+{
+	"description": "docker-plugin-authz",
+	"documentation": "https://docs.docker.com/engine/extend/plugins/",
+	"entrypoint": ["/docker-plugin-authz"],
+	"network": {
+        "type": "host"
+    },
+	"interface" : {
+        "types": ["authz"],
+        "socket": "authz.sock"
+	},
+	"linux": {
+		"capabilities": ["CAP_SYS_ADMIN"]
+    },
+    "env": [
+        {
+            "name": "DEBUG",
+            "settable": [
+                "value"
+            ],
+            "value": "0"
+        }
+    ]
+}
